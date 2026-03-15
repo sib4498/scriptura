@@ -225,4 +225,74 @@ The goal is to grow the site steadily into a comprehensive and visually engaging
 
 # License
 
+
+
+## Recent Update — Responsive Navigation (Mobile Menu)
+
+A responsive navigation improvement was added to support mobile devices.
+
+### Changes Made
+
+Two small updates were applied across the project.
+
+#### 1. Updated Stylesheet
+
+The file:
+
+css/style.css
+
+was replaced with an updated version that includes styles for a responsive navigation menu and hamburger button.
+
+This allows the navigation bar to collapse into a mobile menu on smaller screens.
+
+---
+
+#### 2. Hamburger Button Added to All Pages
+
+Each HTML page now includes a hamburger button inside the navigation element.
+
+Added inside `<nav>` before `</nav>`:
+
+```html
+<button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+```
+
+---
+
+#### 3. Navigation Toggle Script
+
+A small JavaScript toggle script was added at the bottom of every page before the closing `</body>` tag.
+
+This script opens and closes the navigation menu on mobile devices.
+
+```html
+<script>
+(function(){
+  var btn  = document.getElementById('nav-hamburger');
+  var menu = document.querySelector('.nav-links');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  });
+})();
+</script>
+```
+
+---
+
+### Result
+
+The website navigation is now:
+
+* mobile responsive
+* accessible via hamburger menu on small screens
+* automatically collapsible when a link is clicked
+
+This ensures better usability across phones, tablets, and desktops.
+
+
 This project is currently maintained as an open educational resource.
